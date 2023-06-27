@@ -42,11 +42,13 @@ add_action( 'enqueue_block_editor_assets', 'poe_feedback_panel' );
 /**
  * Registers post meta for the voting.
  * Adds the post meta to the post list interface.
- * to do: register this on plugin activation.
+ * to do:
+ * Register this on plugin activation.
+ * Simplify the duplicated actions and filters!
  */
 function poe_feedback_register_post_meta() {
 	register_post_meta(
-		'',
+		'', // Register for all post types.
 		'poe_feedback_yes',
 		array(
 			'show_in_rest' => true,
@@ -56,7 +58,7 @@ function poe_feedback_register_post_meta() {
 		)
 	);
 	register_post_meta(
-		'',
+		'', // Register for all post types.
 		'poe_feedback_no',
 		array(
 			'show_in_rest' => true,
@@ -75,6 +77,16 @@ function poe_feedback_register_post_meta() {
 		}
 	);
 
+	add_filter(
+		'manage_page_posts_columns',
+		function( $columns ) {
+			$columns['poe_feedback_yes'] = __( 'Positive', 'poe-feedback' );
+			$columns['poe_feedback_no']  = __( 'Negative', 'poe-feedback' );
+			return $columns;
+		}
+	);
+
+	// Posts
 	add_action(
 		'manage_posts_custom_column',
 		function( $column_name, $post_id ) {
@@ -88,6 +100,23 @@ function poe_feedback_register_post_meta() {
 		10,
 		2
 	);
+
+	// Pages
+	add_action(
+		'manage_page_posts_custom_column',
+		function( $column_name, $post_id ) {
+			if ( 'poe_feedback_yes' === $column_name ) {
+				echo get_post_meta( $post_id, 'poe_feedback_yes', true );
+			}
+			if ( 'poe_feedback_no' === $column_name ) {
+				echo get_post_meta( $post_id, 'poe_feedback_no', true );
+			}
+		},
+		10,
+		2
+	);
+
+	// Blocks
 	add_action(
 		'manage_block_posts_custom_column',
 		function( $column_name, $post_id ) {
