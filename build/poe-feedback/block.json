@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "poena/poe-feedback",
+  "version": "0.1.0",
+  "title": "Poe Feedback",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Ask readers if the article was helpful.",
+  "attributes": {
+    "negativeLabel": {
+      "type": "string"
+    },
+    "positiveLabel": {
+      "type": "string"
+    },
+    "thankYouMessage": {
+      "type": "string"
+    },
+    "saveNotice": {
+      "type": "string"
+    },
+    "duplicateSubmissionNotice": {
+      "type": "string"
+    },
+    "feedbackURL": {
+      "type": "string"
+    },
+    "feedbackLinkText": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "multiple": false,
+    "html": false,
+    "align": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "color": {
+      "gradients": true,
+      "__experimentalDefaultControls": {
+        "background": true,
+        "text": true
+      }
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "style": true,
+      "width": true,
+      "radius": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "style": true,
+        "width": true,
+        "radius": true
+      }
+    }
+  },
+  "textdomain": "poe-feedback",
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./script.js",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

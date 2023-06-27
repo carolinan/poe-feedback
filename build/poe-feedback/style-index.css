@@ -1,0 +1,34 @@
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/poe-feedback/style.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+:where(.wp-block-poena-poe-feedback) {
+  text-align: center;
+}
+:where(.wp-block-poena-poe-feedback) .wp-block-heading {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+:where(.wp-block-poena-poe-feedback) button:first-of-type {
+  margin-right: 2rem;
+}
+:where(.wp-block-poena-poe-feedback) button {
+  font-size: 1rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}
+:where(.wp-block-poena-poe-feedback) #poe-feedback-notice {
+  font-style: italic;
+  display: none;
+}
+:where(.wp-block-poena-poe-feedback) a {
+  font-style: italic;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

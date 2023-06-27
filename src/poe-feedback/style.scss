@@ -1,0 +1,30 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+:where( .wp-block-poena-poe-feedback ) {
+	text-align: center;
+	& .wp-block-heading {
+		margin-top: 0;
+		margin-bottom: 0.8rem;
+	}
+	& button:first-of-type {
+		margin-right: 2rem;
+	}
+	& button {
+		font-size: 1rem;
+		padding: 0.5rem 0.8rem;
+		border-radius: 2px;
+		border: 1px solid #ccc;
+	}
+	& #poe-feedback-notice {
+		font-style: italic;
+		display: none;
+	}
+	& a {
+		font-style: italic;
+	}
+}
