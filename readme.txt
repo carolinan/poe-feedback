@@ -11,6 +11,8 @@ A basic plugin that asks readers to leave feedback.
 == Description ==
 
 A basic plugin that asks readers to leave feedback.
+This plugin was built for fullsiteediting.com and is not intended to be used as is.
+If you want to copy it, feel free, but you will want to adjust the code to your needs.
 
 == Installation ==
 
@@ -21,3 +23,7 @@ A basic plugin that asks readers to leave feedback.
 
 = 0.1.0 =
 * Release
+
+
+== Copyright ==
+Carolina Nymark
