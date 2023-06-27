@@ -88,5 +88,18 @@ function poe_feedback_register_post_meta() {
 		10,
 		2
 	);
+	add_action(
+		'manage_block_posts_custom_column',
+		function( $column_name, $post_id ) {
+			if ( 'poe_feedback_yes' === $column_name ) {
+				echo get_post_meta( $post_id, 'poe_feedback_yes', true );
+			}
+			if ( 'poe_feedback_no' === $column_name ) {
+				echo get_post_meta( $post_id, 'poe_feedback_no', true );
+			}
+		},
+		10,
+		2
+	);
 }
 add_action( 'init', 'poe_feedback_register_post_meta' );
