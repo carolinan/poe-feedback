@@ -49,7 +49,7 @@ add_action( 'enqueue_block_editor_assets', 'poe_feedback_panel' );
 function poe_feedback_register_post_meta() {
 	register_post_meta(
 		'', // Register for all post types.
-		'poe_feedback_yes',
+		'poe-feedback-yes',
 		array(
 			'show_in_rest' => true,
 			'single'       => true,
@@ -59,7 +59,7 @@ function poe_feedback_register_post_meta() {
 	);
 	register_post_meta(
 		'', // Register for all post types.
-		'poe_feedback_no',
+		'poe-feedback-no',
 		array(
 			'show_in_rest' => true,
 			'single'       => true,

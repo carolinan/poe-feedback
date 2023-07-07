@@ -1,13 +1,13 @@
 
-( function ( wp ) {
-	var registerPlugin = wp.plugins.registerPlugin;
-	var PluginDocumentSettingPanel = wp.editPost.PluginDocumentSettingPanel;
-	var el = wp.element.createElement;
-	var useSelect = wp.data.useSelect;
-	var Text = wp.components.TextControl;
+( function( wp ) {
+	const registerPlugin = wp.plugins.registerPlugin;
+	const PluginDocumentSettingPanel = wp.editPost.PluginDocumentSettingPanel;
+	const el = wp.element.createElement;
+	const useSelect = wp.data.useSelect;
+	const Text = wp.components.TextControl;
 
-	var PoeMetaPositive = function () {
-		var metaFieldValueYes = useSelect( function ( select ) {
+	const PoeMetaPositive = function() {
+		const metaFieldValueYes = useSelect( function( select ) {
 			return select( 'core/editor' ).getEditedPostAttribute(
 				'meta'
 			)[ 'poe_feedback_yes' ];
@@ -19,8 +19,8 @@
 		} );
 	};
 
-	var PoeMetaNegative = function () {
-		var metaFieldValueNo = useSelect( function ( select ) {
+	const PoeMetaNegative = function() {
+		const metaFieldValueNo = useSelect( function( select ) {
 			return select( 'core/editor' ).getEditedPostAttribute(
 				'meta'
 			)[ 'poe_feedback_no' ];
@@ -33,7 +33,7 @@
 	};
 
 	registerPlugin( 'poe-feedback-panel', {
-		render: function () {
+		render: function() {
 			return el(
 				PluginDocumentSettingPanel,
 				{

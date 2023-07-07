@@ -5,7 +5,6 @@ import {
 	RichText,
 	useBlockProps,
 	useInnerBlocksProps,
-	InnerBlocks,
 } from '@wordpress/block-editor';
 
 /**
@@ -25,12 +24,14 @@ export default function save( { attributes } ) {
 		<div { ...blockProps }>
 			<div { ...innerBlocksProps } />
 			<RichText.Content
-			tagName="button"
-			value={ positiveLabel ? positiveLabel : 'Yes' }
+				tagName="button"
+				className="wp-block-button__link wp-element-button"
+				value={ positiveLabel ? positiveLabel : 'Yes' }
 			/>
 			<RichText.Content
-			tagName="button"
-			value={ negativeLabel ? negativeLabel : 'No' }
+				tagName="button"
+				className="wp-block-button__link wp-element-button"
+				value={ negativeLabel ? negativeLabel : 'No' }
 			/>
 		</div>
 	);

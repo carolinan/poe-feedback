@@ -28,14 +28,14 @@ if ( ! isset( $_POST['poe_feedback_submitted'] ) ) {
 	echo '<p id="poe-feedback-notice">' . esc_html( $duplicateSubmissionNotice ) . '</p>';
 	wp_nonce_field( 'poe_feedback_nonce', 'poe_feedback_nonce' );
 	echo '<input type="hidden" name="poe_feedback_submitted" value="true" />';
-	echo '<button id="poe_feedback_yes" name="poe_feedback_yes" value="true" data-post-id=' . esc_attr( $post_id ).' >' . $yes . '</button>';
-	echo '<button id="poe_feedback_no" name="poe_feedback_no" value="true" data-post-id=' . esc_attr( $post_id ). '>' . $no . '</button>';
+	echo '<button id="poe-feedback-yes" class="wp-block-button__link wp-element-button" name="poe-feedback-yes" value="true" data-post-id=' . esc_attr( $post_id ).' >' . $yes . '</button>';
+	echo '<button id="poe-feedback-no" class="wp-block-button__link wp-element-button" name="poe-feedback-no" value="true" data-post-id=' . esc_attr( $post_id ). '>' . $no . '</button>';
 	echo '</form>';
 }
 
 if ( isset( $_POST['poe_feedback_submitted'] ) && 
 	wp_verify_nonce( $_POST['poe_feedback_nonce'], 'poe_feedback_nonce' ) &&
-	( isset( $_POST['poe_feedback_yes'] ) || isset( $_POST['poe_feedback_no'] ) )
+	( isset( $_POST['poe-feedback-yes'] ) || isset( $_POST['poe-feedback-no'] ) )
 ) {
 	echo '<h3 class="wp-block-heading poe-feedback-thank-you">' . esc_html( $thankYouMessage ) . '</h3>';
 	echo sprintf(
@@ -44,15 +44,15 @@ if ( isset( $_POST['poe_feedback_submitted'] ) &&
 		esc_url ( $feedbackURL ),
 		esc_html( $feedbackLinkText )
 	);
-	if ( isset( $_POST['poe_feedback_no'] ) ) {
-		$current_value = get_post_meta( $post_id, 'poe_feedback_no', true );
+	if ( isset( $_POST['poe-feedback-no'] ) ) {
+		$current_value = get_post_meta( $post_id, 'poe-feedback-no', true );
 		$value = $current_value + '1';
-		update_post_meta( $post_id, 'poe_feedback_no', $value );
+		update_post_meta( $post_id, 'poe-feedback-no', $value );
 	}
-	if ( isset( $_POST['poe_feedback_yes'] ) ) {
-		$current_value = get_post_meta( $post_id, 'poe_feedback_yes', true );
+	if ( isset( $_POST['poe-feedback-yes'] ) ) {
+		$current_value = get_post_meta( $post_id, 'poe-feedback-yes', true );
 		$value = $current_value + '1';
-		update_post_meta( $post_id, 'poe_feedback_yes', $value );
+		update_post_meta( $post_id, 'poe-feedback-yes', $value );
 	}
 };
 echo '</div>';

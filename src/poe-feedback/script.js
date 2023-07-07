@@ -1,33 +1,40 @@
 window.addEventListener( 'load', () => {
-	let poe_feedback_postid = document.querySelector( '#poe-feedback-wrapper' );
-	poe_feedback_postid = poe_feedback_postid.getAttribute( 'data-post-id' );
+	const poeFeedbackWrapper = document.querySelector( '#poe-feedback-wrapper' );
+	const poeFeedbackPostid = poeFeedbackWrapper.getAttribute( 'data-post-id' );
 
-	const poe_feedback_yes = document.querySelector( '#poe_feedback_yes' );
-	if ( poe_feedback_yes ) {
-		poe_feedback_yes.addEventListener( 'click', storeEvent );
-	}
-	const poe_feedback_no = document.querySelector( '#poe_feedback_no' );
-	if ( poe_feedback_no ) {
-		poe_feedback_no.addEventListener( 'click', storeEvent );
+	const poeFeedbackYes = document.querySelector( '#poe-feedback-yes' );
+	if ( poeFeedbackYes ) {
+		poeFeedbackYes.addEventListener( 'click', storeEvent );
 	}
 
-	const stored = localStorage.getItem( 'poe-feedback-store' + poe_feedback_postid );
-	if ( stored && stored === poe_feedback_postid ) {
-		if ( poe_feedback_yes ) {
-			poe_feedback_yes.setAttribute( "hidden", true );
-			poe_feedback_yes.setAttribute( "disabled", true );
+	const poeFeedbackNo = document.querySelector( '#poe-feedback-no' );
+	if ( poeFeedbackNo ) {
+		poeFeedbackNo.addEventListener( 'click', storeEvent );
+	}
+
+	const stored = localStorage.getItem( 'poe-feedback-store' + poeFeedbackPostid );
+	if ( stored && stored === poeFeedbackPostid ) {
+		if ( poeFeedbackYes || poeFeedbackNo ) {
+			poeFeedbackWrapper.setAttribute( 'hidden', true );
 		}
-		if ( poe_feedback_no ) {
-			poe_feedback_no.setAttribute( "hidden", true );
-			poe_feedback_yes.setAttribute( "disabled", true );
-		}
-		const poe_feedback_notice = document.querySelector( '#poe-feedback-notice' );
-		if ( poe_feedback_notice ) {
-			poe_feedback_notice.style.display = 'block';
+
+		if ( stored && stored === poeFeedbackPostid ) {
+			if ( poeFeedbackYes ) {
+				poeFeedbackYes.setAttribute( 'hidden', true );
+				poeFeedbackYes.setAttribute( 'disabled', true );
+			}
+			if ( poeFeedbackNo ) {
+				poeFeedbackNo.setAttribute( 'hidden', true );
+				poeFeedbackNo.setAttribute( 'disabled', true );
+			}
+			const poeFeedbackNotice = document.querySelector( '#poe-feedback-notice' );
+			if ( poeFeedbackNotice ) {
+				poeFeedbackNotice.style.display = 'block';
+			}
 		}
 	}
 
 	function storeEvent( event ) {
-		localStorage.setItem( 'poe-feedback-store' + poe_feedback_postid, poe_feedback_postid );
+		localStorage.setItem( 'poe-feedback-store' + poeFeedbackPostid, poeFeedbackPostid );
 	}
 } );

@@ -6,7 +6,7 @@
   "title": "Poe Feedback",
   "category": "widgets",
   "icon": "smiley",
-  "description": "Ask readers if the article was helpful.",
+  "description": "Ask readers if the lesson was helpful.",
   "attributes": {
     "negativeLabel": {
       "type": "string"

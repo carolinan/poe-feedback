@@ -1,3 +1,6 @@
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
 import {
 	RichText,
@@ -46,40 +49,40 @@ export default function Edit( { attributes, setAttributes } ) {
 	} );
 
 	return (
-			<>
+		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'poe-feedback' ) }>
 					<TextControl
 						label={ __( 'Thank you message', 'poe-feedback' ) }
 						value={ thankYouMessage ? thankYouMessage : __( 'Thank you, I appreciate you!', 'poe-feedback' ) }
-						onChange={(value) => setAttributes({ thankYouMessage: value })}
+						onChange={ ( value ) => setAttributes( { thankYouMessage: value } ) }
 					/>
 					<TextControl
 						label={ __( 'Save notice', 'poe-feedback' ) }
 						value={ saveNotice ? saveNotice : __( 'Your anonymous feedback has been saved.', 'poe-feedback' ) }
-						onChange={(value) => setAttributes({ saveNotice: value })}
+						onChange={ ( value ) => setAttributes( { saveNotice: value } ) }
 					/>
 					<TextControl
 						label={ __( 'Duplicate submission notice', 'poe-feedback' ) }
 						value={ duplicateSubmissionNotice ? duplicateSubmissionNotice : __( 'You have already provided feedback for this lesson.', 'poe-feedback' ) }
-						onChange={(value) => setAttributes({ duplicateSubmissionNotice: value })}
+						onChange={ ( value ) => setAttributes( { duplicateSubmissionNotice: value } ) }
 					/>
 					<TextControl
 						label={ __( 'Feedback URL', 'poe-feedback' ) }
 						placeholder="https://github.com/carolinan/fullsiteediting/issues/new"
 						value={ feedbackURL }
-						onChange={(value) => setAttributes({ feedbackURL: value })}
+						onChange={ ( value ) => setAttributes( { feedbackURL: value } ) }
 					/>
 					<TextControl
 						label={ __( 'Feedback link text', 'poe-feedback' ) }
-						value={ feedbackLinkText ? feedbackLinkText : __( 'If you would like to provide more details, please open a GitHub issue.', 'poe-feedback' )}
-						onChange={(value) => setAttributes({ feedbackLinkText: value })}
+						value={ feedbackLinkText ? feedbackLinkText : __( 'If you would like to provide more details, please open a GitHub issue.', 'poe-feedback' ) }
+						onChange={ ( value ) => setAttributes( { feedbackLinkText: value } ) }
 					/>
 					<Button
 						variant="secondary"
 						// Reset all attributes to default values
-						onClick={() => {
-							setAttributes({
+						onClick={ () => {
+							setAttributes( {
 								positiveLabel: __( 'Yes', 'poe-feedback' ),
 								negativeLabel: __( 'No', 'poe-feedback' ),
 								feedbackURL: 'https://github.com/carolinan/fullsiteediting/issues/new',
@@ -87,25 +90,27 @@ export default function Edit( { attributes, setAttributes } ) {
 								saveNotice: __( 'Your anonymous feedback has been saved.', 'poe-feedback' ),
 								duplicateSubmissionNotice: __( 'You have already provided feedback for this lesson.', 'poe-feedback' ),
 								thankYouMessage: __( 'Thank you, I appreciate you!', 'poe-feedback' ),
-							});
+							} );
 						} }
 					>
 						{ __( 'Reset', 'poe-feedback' ) }
 					</Button>
 				</PanelBody>
 			</InspectorControls>
-			<div {...useBlockProps()}>
-				{innerBlocksProps.children}
+			<div { ...useBlockProps() }>
+				{ innerBlocksProps.children }
 				<RichText
 					tagName="button"
-					allowedFormats={ ['core/bold', 'core/italic', 'core/image'] }
+					className="wp-block-button__link wp-element-button"
+					allowedFormats={ [ 'core/bold', 'core/italic', 'core/image' ] }
 					value={ positiveLabel ? positiveLabel : __( 'Yes', 'poe-feedback' ) }
-					onChange={ (value) => setAttributes({ positiveLabel: value }) } />
+					onChange={ ( value ) => setAttributes( { positiveLabel: value } ) } />
 				<RichText
 					tagName="button"
-					allowedFormats={ ['core/bold', 'core/italic', 'core/image'] }
-					value={ negativeLabel ? negativeLabel : __(' No', 'poe-feedback' ) }
-					onChange={ (value) => setAttributes({ negativeLabel: value }) } />
+					className="wp-block-button__link wp-element-button"
+					allowedFormats={ [ 'core/bold', 'core/italic', 'core/image' ] }
+					value={ negativeLabel ? negativeLabel : __( 'No', 'poe-feedback' ) }
+					onChange={ ( value ) => setAttributes( { negativeLabel: value } ) } />
 			</div>
 		</>
 	);
